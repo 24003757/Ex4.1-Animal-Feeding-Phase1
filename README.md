@@ -1,4 +1,6 @@
 # Ex4.1-Animal-Feeding-Phase1
+# Developed by: Vinolia Alaina .R
+# Register number: 212224240184
 ## Aim :
 
 To develop a animal feeding game-Phase-1 using unity.
@@ -58,8 +60,69 @@ Select all three animals in the hierarchy and Add Component > Drag the Move Forw
 Edit their speed values and test to see how it looks. Drag all three animals into the Prefabs folder, choosing “Original Prefab”
 
 ## Program:
+# Player Control
+```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
+public class NewBehaviourScript : MonoBehaviour
+{
+    public float horizontalInput;
+    public float speed = 10.0f;
+    public float xRange = 5.0f;
+    public GameObject projectilePrefab;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (transform.position.x < -xRange)
+
+
+            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+        if (transform.position.x > xRange)
+            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+
+        horizontalInput = Input.GetAxis("Horizontal");
+        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+        if(Input.GetKeyDown(KeyCode.Space))
+        
+            // Launch a projectile from the player
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        
+    }
+}
+```
+# Moveing Forward:
+```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MoveForward : MonoBehaviour
+{
+    public float speed = 10.0f;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+    }
+}
+```
 ## Output:
+<img width="1459" height="706" alt="image" src="https://github.com/user-attachments/assets/f277aafc-566c-4047-9632-ccb01f0323ef" />
+<img width="1919" height="1134" alt="image" src="https://github.com/user-attachments/assets/e853d461-a1a5-43cb-b251-4e6874492c11" />
 
 ## Result:
 Thus,Animal feeding game-Phase-1 using unity is developed successfully.
