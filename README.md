@@ -98,7 +98,7 @@ public class NewBehaviourScript : MonoBehaviour
     }
 }
 ```
-# Moveing Forward:
+# Moving Forward:
 ```
 using System.Collections;
 using System.Collections.Generic;
